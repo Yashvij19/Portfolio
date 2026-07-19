@@ -27,7 +27,7 @@ export const initialProjects: ProjectItem[] = [
       "Docker",
       "JWT Authentication"
     ],
-    image: "/enterpriseRag.png",
+    image: "/enterpriseRag.jpeg",
     isFeatured: true,
     link: "https://github.com/Yashvij19/hybridRag.git"
   },
@@ -48,7 +48,7 @@ export const initialProjects: ProjectItem[] = [
       "System Design",
       "API Gateway"
     ],
-    image: "/rateLimiter.png",
+    image: "/rateLimiter.jpeg",
     isFeatured: true,
     link: "https://github.com/Yashvij19/rate-limiter-token.git"
   },
@@ -67,7 +67,7 @@ export const initialProjects: ProjectItem[] = [
       "System Architecture",
       "Backend Engineering"
   ],
-    image: "/bankingLedger.png",
+    image: "/bankingLedger.jpeg",
     isFeatured: true,
     link: "https://github.com/Yashvij19/Banking_Transaction.git"
   }

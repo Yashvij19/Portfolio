@@ -248,7 +248,7 @@ export default function PortfolioPage() {
     title: "Software Engineer",
     headline: "Software Engineer | Specializing in Backend & System Architecture",
     bio: "I am a software engineer focused on building robust, scalable backend systems and efficient architectures. While I possess full-stack proficiency, my core expertise lies in designing high-performance APIs, complex database schemas, and secure data flows. I approach development with a system-design mindset, prioritizing stability, maintainability, and architectural efficiency. Rather than simply building features, I architect the reliable, scalable foundations that drive seamless and effective digital experiences.",
-    photoUrl: "/yash.png",
+    photoUrl: "/yash.jpeg",
     github: "github.com/Yashvij19",
     linkedin: "linkedin.com/in/yashvijay19"
   });
@@ -429,7 +429,7 @@ export default function PortfolioPage() {
               <img
                 alt={`${profile?.name || "Yash Vijay"} Profile`}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                src={"/yash.png"}
+                src={"/yash.jpeg"}
               />
 
             </div>

@@ -49,15 +49,9 @@ export default function ProjectsPage() {
           </Link>
           <Link
             className="font-label-md text-label-md text-on-surface-variant hover:text-vibrant-orange transition-colors duration-200"
-            href="/#tools"
+            href="/#tech"
           >
-            Tools
-          </Link>
-          <Link
-            className="font-label-md text-label-md text-on-surface-variant hover:text-vibrant-orange transition-colors duration-200"
-            href="/#blog"
-          >
-            Blog
+            Tech
           </Link>
         </div>
         <Link
@@ -310,8 +304,7 @@ export default function ProjectsPage() {
             <Link className="font-body-md text-body-md text-muted-gray hover:text-electric-lime transition-all duration-300" href="/">Home</Link>
             <Link className="font-body-md text-body-md text-vibrant-orange font-bold transition-all duration-300" href="/projects">Projects</Link>
             <Link className="font-body-md text-body-md text-muted-gray hover:text-electric-lime transition-all duration-300" href="/#experience">Experience</Link>
-            <Link className="font-body-md text-body-md text-muted-gray hover:text-electric-lime transition-all duration-300" href="/#tools">Tools</Link>
-            <Link className="font-body-md text-body-md text-muted-gray hover:text-electric-lime transition-all duration-300" href="/#blog">Blog</Link>
+            <Link className="font-body-md text-body-md text-muted-gray hover:text-electric-lime transition-all duration-300" href="/#tech">Tech</Link>
           </div>
           <div className="flex gap-4">
             <a className="text-muted-gray hover:text-vibrant-orange transition-colors" href="https://github.com/Yashvij19" target="_blank" rel="noopener noreferrer" title="GitHub">

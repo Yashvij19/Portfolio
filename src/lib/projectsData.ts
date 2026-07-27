@@ -68,7 +68,40 @@ export const initialProjects: ProjectItem[] = [
       "Backend Engineering"
   ],
     image: "/bankingLedger.jpeg",
-    isFeatured: true,
+    isFeatured: false,
     link: "https://github.com/Yashvij19/Banking_Transaction.git"
+  },
+   {
+    id: 4,
+    title: "Resilient Redis-Queue",
+    desc: "ZestQueue is an enterprise-grade, fault-tolerant background job processing engine built with Node.js and Redis. Designed for high-reliability systems like distributed financial ledgers and multi-tenant SaaS platforms, it guarantees task execution even during catastrophic server crashes. The architecture utilizes Redis-backed idempotency locks to mathematically prevent duplicate transactions, alongside exponential backoff and a dedicated Dead-Letter Queue (DLQ) for failed jobs. It features an autonomous Sweeper mechanism to rescue delayed or orphaned processes (Visibility Timeouts), supports in-process concurrency pooling to maximize throughput, and includes a Fastify-powered observability API for real-time queue monitoring.",
+    tags: [
+      "Node.js",
+  "TypeScript",
+  "Redis",
+  "ioredis",
+  "Fastify",
+  "UUID",
+  
+  // Advanced Redis Operations
+  "Atomic Operations ",
+  "Transaction Pipelines ",
+  "Sorted Sets ",
+    
+  // Distributed Systems Concepts
+  "Message Queuing",
+  "Idempotency Locks",
+  "Dead-Letter Queues (DLQ)",
+  "Exponential Backoff",
+  "Visibility Timeouts",
+  
+  // Node.js Performance & DevOps
+  "In-Process Concurrency ",
+  "Graceful Shutdowns (SIGINT/SIGTERM)",
+  "Microservice Observability"
+  ],
+    image: "/resilient-redis-queue.png",
+    isFeatured: true,
+    link: "https://github.com/Yashvij19/resilient-redis-queue.git"
   }
 ];

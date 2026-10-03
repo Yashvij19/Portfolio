@@ -8,7 +8,8 @@ import {
   LayoutDashboard, ArrowRight, ArrowUpRight,
   CircleDollarSign, Brain, ClipboardList, Code,
   Database, Server, Cpu, Terminal, Zap, GitBranch,
-  Boxes, FileCode, Network, Braces, Sparkles, X
+  Boxes, FileCode, Network, Braces, Sparkles, X,
+  Download
 } from "lucide-react";
 
 const GithubIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -159,7 +160,35 @@ const toolIcons = {
   code: Code
 };
 
+function getDynamicExperience(): string {
+  const startDate = new Date(2025, 1, 18); // Feb 18, 2025
+  const today = new Date();
+
+  let years = today.getFullYear() - startDate.getFullYear();
+  let months = today.getMonth() - startDate.getMonth();
+
+  if (today.getDate() < startDate.getDate()) {
+    months--;
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  if (years <= 0) {
+    return `+0.${months}`;
+  }
+
+  if (months === 0) {
+    return `+${years}`;
+  }
+
+  return `+${years}.${months}`;
+}
+
 export default function PortfolioPage() {
+  const [experience, setExperience] = useState<string>("+1.7");
   const [showMoreProjects, setShowMoreProjects] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -305,8 +334,9 @@ export default function PortfolioPage() {
     contact: useRef<HTMLElement>(null),
   };
 
-  // Reset session on mount
+  // Initialize dynamic experience & reset session on mount
   useEffect(() => {
+    setExperience(getDynamicExperience());
     if (typeof window !== "undefined") {
       sessionStorage.removeItem("admin_token");
     }
@@ -409,12 +439,21 @@ export default function PortfolioPage() {
           ))}
         </div>
         <a
+          href="/Yash_Vijay_Resume.pdf"
+          download="Yash_Vijay_Resume.pdf"
+          className="ml-4 px-4 py-1.5 border border-muted-gray/30 hover:border-vibrant-orange text-pure-white hover:text-vibrant-orange rounded-full font-label-md text-label-md transition-all active:scale-95 flex items-center gap-1.5 cursor-pointer"
+          title="Download Yash Vijay Resume"
+        >
+          <Download className="w-3.5 h-3.5 text-vibrant-orange" />
+          <span>Resume</span>
+        </a>
+        <a
           href="#contact"
           onClick={(e) => {
             e.preventDefault();
             sectionRefs.contact.current?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="ml-4 px-4 py-1.5 bg-vibrant-orange text-pure-white rounded-full font-label-md text-label-md transition-transform active:scale-90 hover:brightness-115 inline-block cursor-pointer"
+          className="ml-2 px-4 py-1.5 bg-vibrant-orange text-pure-white rounded-full font-label-md text-label-md transition-transform active:scale-90 hover:brightness-115 inline-block cursor-pointer"
         >
           Hire Me
         </a>
@@ -439,6 +478,16 @@ export default function PortfolioPage() {
             <p className="text-muted-gray mb-4 px-2 font-body-md text-body-md leading-relaxed">
               {profile?.headline || "Software Engineer | Specializing in Backend & System Architecture"}
             </p>
+            {/* Download Resume Button */}
+            <a
+              href="/Yash_Vijay_Resume.pdf"
+              download="Yash_Vijay_Resume.pdf"
+              className="w-full my-3 py-2.5 px-4 bg-surface-charcoal hover:bg-surface-charcoal/90 text-pure-white rounded-2xl font-label-md text-label-md font-medium transition-all duration-200 flex items-center justify-center gap-2 hover:shadow-lg active:scale-[0.98] group/btn cursor-pointer"
+              title="Download Yash Vijay Resume"
+            >
+              <Download className="w-4 h-4 text-vibrant-orange group-hover/btn:translate-y-0.5 transition-transform" />
+              <span>Download Resume</span>
+            </a>
             <div className="flex gap-4 pb-2 mt-auto">
               <a className="text-vibrant-orange hover:scale-120 transition-transform" href={profile?.github ? `https://${profile.github}` : "https://github.com/Yashvij19"} target="_blank" rel="noopener noreferrer" title="GitHub">
                 <GithubIcon className="w-5 h-5" />
@@ -464,12 +513,33 @@ export default function PortfolioPage() {
                 Engineer
               </span>
             </div>
-            <p className="font-body-lg text-body-lg text-muted-gray max-w-2xl mb-12">
+            <p className="font-body-lg text-body-lg text-muted-gray max-w-2xl mb-8">
               {profile?.bio || "I am a software engineer focused on building robust, scalable backend systems and efficient architectures. While I possess full-stack proficiency, my core expertise lies in designing high-performance APIs, complex database schemas, and secure data flows. I approach development with a system-design mindset, prioritizing stability, maintainability, and architectural efficiency. Rather than simply building features, I architect the reliable, scalable foundations that drive seamless and effective digital experiences."}
             </p>
+            <div className="flex flex-wrap items-center gap-4 mb-12">
+              <a
+                href="/Yash_Vijay_Resume.pdf"
+                download="Yash_Vijay_Resume.pdf"
+                className="px-6 py-3 bg-vibrant-orange hover:bg-vibrant-orange/90 text-pure-white rounded-2xl font-label-md text-label-md font-semibold transition-all hover:shadow-[0_0_20px_rgba(244,108,56,0.3)] active:scale-95 inline-flex items-center gap-2 cursor-pointer group"
+              >
+                <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                <span>Download Resume</span>
+              </a>
+              <a
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  sectionRefs.contact.current?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-6 py-3 border border-muted-gray/30 hover:border-vibrant-orange text-pure-white hover:text-vibrant-orange rounded-2xl font-label-md text-label-md font-medium transition-all active:scale-95 inline-flex items-center gap-2 cursor-pointer"
+              >
+                <span>Let&apos;s Talk</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
             <div className="grid grid-cols-2 gap-8 max-w-md">
               <div className="space-y-1">
-                <span className="font-display-lg-mobile text-display-lg-mobile text-pure-white">+1.5</span>
+                <span className="font-display-lg-mobile text-display-lg-mobile text-pure-white" suppressHydrationWarning>{experience}</span>
                 <p className="font-label-sm text-label-sm uppercase tracking-widest text-muted-gray">Years Of Experience</p>
               </div>
               <div className="space-y-1">
@@ -665,7 +735,7 @@ export default function PortfolioPage() {
           {/* Experience Timeline */}
           <section ref={sectionRefs.experience} className="space-y-stack-lg" id="experience">
             <div className="relative">
-              <h2 className="font-display-lg text-display-lg-mobile lg:text-display-lg text-pure-white leading-none">1.5 YEARS OF</h2>
+              <h2 className="font-display-lg text-display-lg-mobile lg:text-display-lg text-pure-white leading-none">{experience} YEARS OF</h2>
               <span className="font-display-lg text-display-lg-mobile lg:text-display-lg text-outline-stroke block uppercase">Experience</span>
             </div>
             <div className="relative pl-8 space-y-12 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[1px] before:bg-muted-gray/20">

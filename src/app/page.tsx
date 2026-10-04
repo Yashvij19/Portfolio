@@ -735,7 +735,7 @@ export default function PortfolioPage() {
           {/* Experience Timeline */}
           <section ref={sectionRefs.experience} className="space-y-stack-lg" id="experience">
             <div className="relative">
-              <h2 className="font-display-lg text-display-lg-mobile lg:text-display-lg text-pure-white leading-none">{experience} YEARS OF</h2>
+              <h2 className="font-display-lg text-display-lg-mobile lg:text-display-lg text-pure-white leading-none" suppressHydrationWarning>{experience} YEARS OF</h2>
               <span className="font-display-lg text-display-lg-mobile lg:text-display-lg text-outline-stroke block uppercase">Experience</span>
             </div>
             <div className="relative pl-8 space-y-12 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-[1px] before:bg-muted-gray/20">
